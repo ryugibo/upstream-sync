@@ -1,0 +1,32 @@
+name: Upstream Sync
+
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - repo: ryugibo/UnrealEngine-Angelscript
+            source: Hazelight/UnrealEngine-Angelscript
+            branch: angelscript-master
+
+          - repo: ryugibo/EmmsUI
+            source: Hazelight/EmmsUI
+            branch: master
+
+    steps:
+      - name: Sync ${{ matrix.repo }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_FOR_SYNC }}
+        run: |
+          gh repo sync "${{ matrix.repo }}" \
+            --source "${{ matrix.source }}" \
+            --branch "${{ matrix.branch }}"
+
