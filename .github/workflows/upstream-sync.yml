@@ -21,6 +21,10 @@ jobs:
             source: Hazelight/EmmsUI
             branch: master
 
+          - repo: ryugibo/ueas
+            source: Hazelight/Docs-UnrealEngine-Angelscript
+            branch: master
+
     steps:
       - name: Sync ${{ matrix.repo }}
         env:
