@@ -25,6 +25,10 @@ jobs:
             source: Hazelight/Docs-UnrealEngine-Angelscript
             branch: master
 
+          - repo: ryugibo/VibeUE
+            source: kevinpbuckley/VibeUE
+            branch: master
+
     steps:
       - name: Sync ${{ matrix.repo }}
         env:
