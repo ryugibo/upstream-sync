@@ -35,6 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_FOR_SYNC }}
         run: |
           gh repo sync "${{ matrix.repo }}" \
+            --force \
             --source "${{ matrix.source }}" \
             --branch "${{ matrix.branch }}"
 
