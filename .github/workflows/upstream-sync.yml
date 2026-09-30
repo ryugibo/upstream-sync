@@ -33,6 +33,10 @@ jobs:
             source: Hazelight/vscode-unreal-angelscript
             branch: master
 
+          - repo: ryugibo/vscode-unreal-angelscript-formatter
+            source: Hazelight/vscode-unreal-angelscript-formatter
+            branch: main
+
     steps:
       - name: Sync ${{ matrix.repo }}
         env:
